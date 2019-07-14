@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <caption>Books</caption>
+  
+<tr><th>Code</th><th>Title</th><th>Author</th><th>genre</th></tr>
+
+    <tr *ngFor="let book of bookList"><td>{{book.code}}</td>
+      <td>{{book.name}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.genre}}</td>
+      <td><button class="btn btn-warning" (click)="delete(book.code)">Delete</button></td>
+      <td><button class="btn btn-green" (click)="changeFlag(book)">update</button></td>
+    </tr>
+
+</table>
+<form #updateForm="ngForm" (ngSubmit)=update(updateForm.value)>
+  Code: <input type="text" [(ngModel)]="this.code" name="code" ngModel>
+  Name: <input type="text" [(ngModel)]="this.name" name="name" ngModel>
+  Author: <input type="text" [(ngModel)]="this.author" name="author" ngModel>
+  Genre: <input type="text" [(ngModel)]="this.genre" name="genre" ngModel>
+  <input type="submit">
+</form>
+

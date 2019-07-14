@@ -1,0 +1,46 @@
+
+  <div class="container" >
+    <div class="row">
+      <div class="col-xs-4">
+        <form #bookForm ="ngForm" class="from" (ngSubmit)="insert(bookForm.value)" class="form">
+          <div class="form-group">
+            <label>Book Name: </label> <input type="text" name="name" class="form-control" ngModel required><bR>
+            <label> Book Code: </label> <input type="text" name="code" class="form-control" ngModel rquired><bR>
+            <label>Book Author: </label> <input type="text" name="author" class="form-control" ngModel required><bR>
+            <label>Book Genre: </label> <select value="g" name="genre" class="form-control" ngModel required>
+                        <option value=" ">select the genre</option>
+                        <option *ngFor="let g of genre" value="g" >{{g}}</option>
+                          </select><br>
+            
+            <div class="row">
+              <div class="col-xs-4">
+                 <input type="submit" class="btn btn-success" value="Add Book" >
+                </div>
+                
+              <div class="col-xs-1">
+                  <input type="reset" class="btn btn-warning" value="Clear All" >
+                </div>
+              </div>
+            </div>  
+          </form>
+          
+         <pre>{{bookForm.value|json}}</pre>
+    
+       </div>
+      <div class="col-xs-6">
+          <img [src]="imgsrc" class="img">
+        </div>
+      <div class="col-xs-2">
+        <form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" class="form">
+          <input type = "text" name = "emailid" placeholder = "emailid" ngModel class="form-control">
+          <br/>
+          <input type = "password" name = "passwd" placeholder = "passwd" ngModel class="form-control">
+          <br/>
+          <input type = "submit" value = "submit">
+          </form>
+       </div> 
+      </div>
+    </div>
+
+    
+
